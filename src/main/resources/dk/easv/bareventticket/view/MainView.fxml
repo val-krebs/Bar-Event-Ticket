@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="dk.easv.bareventticket.gui.controller.MainController">
+
+    <center>
+        <TabPane fx:id="tabPane">
+
+            <tabs>
+                <Tab text="Users" fx:id="usersTab"/>
+                <Tab text="Events" fx:id="eventsTab"/>
+                <Tab text="Tickets" fx:id="ticketsTab"/>
+                <Tab text="Assign Coordinators" fx:id="assignTab"/>
+                <Tab text="Settings" fx:id="settingsTab"/>
+            </tabs>
+
+        </TabPane>
+    </center>
+
+</BorderPane>
