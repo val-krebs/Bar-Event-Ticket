@@ -19,38 +19,35 @@ public class LoginController {
     private PasswordField txtPassword;
 
     private UserManager userManager = new UserManager();
+//This will load a new scene
+@FXML
+private void handleLogin() {
+    try {
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
 
-    @FXML
-    private void handleLogin() {
-        try {
-            String username = txtUsername.getText();
-            String password = txtPassword.getText();
+        User user = userManager.login(username, password);
 
-            User user = new User(1, "test", "test", "Admin");
+        if (user != null) {
+            System.out.println("Login successful: " + user.getRole());
 
-            if (user != null) {
-                System.out.println("Login successful: " + user.getRole());
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/dk/easv/bareventticket/view/EventsView.fxml")
+            );
 
-                FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/dk/easv/bareventticket/view/MainView.fxml")
-                );
+            Scene newScene = new Scene(loader.load());
 
-                Parent root = loader.load();
+            Stage stage = (Stage) txtUsername.getScene().getWindow();
+            stage.setScene(newScene);
+            stage.setTitle("Events");
 
-                Stage stage = new Stage();
-                stage.setTitle("Main Application");
-                stage.setScene(new Scene(root));
-                stage.show();
-
-                // Close login window
-                txtUsername.getScene().getWindow().hide();
-
-            } else {
-                System.out.println("Invalid login");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("Invalid login");
         }
+
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+}
+
 }

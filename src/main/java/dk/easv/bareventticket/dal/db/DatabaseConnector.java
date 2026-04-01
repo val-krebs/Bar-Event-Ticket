@@ -14,3 +14,4 @@ public class DatabaseConnector {
         return DriverManager.getConnection(url, user, password);
     }
 }
+

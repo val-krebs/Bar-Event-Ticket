@@ -1,18 +1,21 @@
 package dk.easv.bareventticket.bll;
 
 import dk.easv.bareventticket.be.User;
-import dk.easv.bareventticket.dal.db.UserDAO;
-import dk.easv.bareventticket.dal.interfaces.IUserDAO;
 
 public class UserManager {
 
-    private IUserDAO userDAO;
+    public User login(String username, String password) {
 
-    public UserManager() {
-        userDAO = new UserDAO();
-    }
+        System.out.println("Using FAKE login"); // 👈 ADD THIS LINE
 
-    public User login(String username, String password) throws Exception {
-        return userDAO.getUser(username, password);
+        if (username.equals("admin") && password.equals("1234")) {
+            return new User(1, "admin", "1234", "Admin");
+        }
+
+        if (username.equals("coord") && password.equals("1234")) {
+            return new User(2, "coord", "1234", "Coordinator");
+        }
+
+        return null;
     }
 }

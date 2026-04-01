@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class UserDAO implements IUserDAO {
+ public class UserDAO implements IUserDAO {
 
     private DatabaseConnector connector = new DatabaseConnector();
 
@@ -36,3 +36,4 @@ public class UserDAO implements IUserDAO {
         return null;
     }
 }
+
